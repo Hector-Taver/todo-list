@@ -1,3 +1,14 @@
+import { PlusCircle } from 'phosphor-react'
+
+import styles from './CreateNewTask.module.css'
+
 export function CreateNewTask() {
-  return <h1>Create New Task</h1>
+  return (
+    <div className={styles.container}>
+      <input type="text" placeholder="Adicione uma nova tarefa" />
+      <button>
+        Criar <PlusCircle size={24} />
+      </button>
+    </div>
+  )
 }

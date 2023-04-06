@@ -1,9 +1,11 @@
 import { v4 as uuid } from 'uuid'
 
-import { Header } from './components/Header'
 import { CreateNewTask } from './components/CreateNewTask'
-import { Tasks } from './components/Tasks'
 import { EmptyTasks } from './components/EmptyTask'
+import { Header } from './components/Header'
+import { Tasks } from './components/Tasks'
+
+import styles from './App.module.css'
 
 import './global.css'
 
@@ -34,8 +36,10 @@ export function App() {
   return (
     <>
       <Header />
-      <CreateNewTask />
-      <main>{tasks.length < 1 ? <Tasks /> : <EmptyTasks />}</main>
+      <div className={styles.container}>
+        <CreateNewTask />
+        <main>{tasks.length < 1 ? <Tasks /> : <EmptyTasks />}</main>
+      </div>
     </>
   )
 }
