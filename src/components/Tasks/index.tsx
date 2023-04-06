@@ -3,7 +3,7 @@ import { TasksHeader } from '../TasksHeader'
 export function Tasks() {
   return (
     <>
-      <TasksHeader />
+      <TasksHeader completed={5} created={5} />
       <h1>Tasks</h1>
     </>
   )

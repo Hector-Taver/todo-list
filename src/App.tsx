@@ -35,7 +35,7 @@ export function App() {
     <>
       <Header />
       <CreateNewTask />
-      <main>{tasks.length > 1 ? <Tasks /> : <EmptyTasks />}</main>
+      <main>{tasks.length < 1 ? <Tasks /> : <EmptyTasks />}</main>
     </>
   )
 }

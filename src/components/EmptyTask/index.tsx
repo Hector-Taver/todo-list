@@ -3,7 +3,7 @@ import { TasksHeader } from '../TasksHeader'
 export function EmptyTasks() {
   return (
     <>
-      <TasksHeader />
+      <TasksHeader completed={0} created={0} />
       <h1>Empty Task</h1>
     </>
   )

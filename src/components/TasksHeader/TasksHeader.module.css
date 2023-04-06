@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container p span {
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 100%;
+  margin-left: 0.5rem;
+}
+
+.created {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.completed {
+  color: var(--purple);
+  font-weight: bold;
+}
