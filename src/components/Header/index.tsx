@@ -1,5 +1,10 @@
 import styles from './Header.module.css'
+import logo from '../../assets/logo.svg'
 
 export function Header() {
-  return <h1>Navbar</h1>
+  return (
+    <header className={styles.container}>
+      <img src={logo} alt="" />
+    </header>
+  )
 }
