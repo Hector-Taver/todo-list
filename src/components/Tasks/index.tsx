@@ -53,7 +53,7 @@ export function Tasks({ taskDescription }: TasksProps) {
               ? taskDescription.substring(0, 125) + '...'
               : taskDescription}
           </p>
-          <Trash className={styles.trash} size={24} />
+          <Trash className={styles.trash} />
         </div>
       )}
     </>
