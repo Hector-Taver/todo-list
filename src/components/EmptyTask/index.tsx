@@ -8,7 +8,7 @@ export function EmptyTasks() {
     <>
       <TasksHeader completed={0} created={0} />
       <div className={styles.container}>
-        <ClipboardText size={60} opacity={0.5} />
+        <ClipboardText className={styles.clipboard} />
         <p>
           <span>Você ainda não tem tarefas cadastradas</span>
           Crie tarefas e organize seus itens a fazer

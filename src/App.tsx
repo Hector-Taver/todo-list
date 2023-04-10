@@ -39,7 +39,7 @@ export function App() {
       <div className={styles.container}>
         <CreateNewTask />
         <main>
-          {tasks.length > 1 ? (
+          {tasks.length < 1 ? (
             <Tasks
               taskDescription={
                 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur accusamus eaque quos obcaecati commodi vel in rerum, adipisci perferendis nemo numquam vero facilis, optio consequatur beatae sunt eligendi, ipsa assumenda. '
