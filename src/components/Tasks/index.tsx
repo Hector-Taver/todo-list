@@ -3,18 +3,23 @@ import { v4 as uuid } from 'uuid'
 import { EmptyTasks } from '../EmptyTask'
 import { TasksHeader } from '../TasksHeader'
 import { Task } from '../Task'
+import { useState } from 'react'
 
-// import styles from './Tasks.module.css'
-
-const tasks = [
-  {
-    id: uuid(),
-    title: 'Java',
-    isComplete: true,
-  },
-]
+interface TasksProps {
+  id: string
+  title: string
+  isComplete: boolean
+}
 
 export function Tasks() {
+  const [tasks, setTasks] = useState<TasksProps[]>([
+    {
+      id: uuid(),
+      title: 'JavaScript',
+      isComplete: false,
+    },
+  ])
+
   return (
     <>
       <TasksHeader created={tasks.length} completed={0} />
