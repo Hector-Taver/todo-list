@@ -1,58 +1,38 @@
-import * as Checkbox from '@radix-ui/react-checkbox'
-import { Check, Trash } from 'phosphor-react'
+import { v4 as uuid } from 'uuid'
 
-import styles from './Tasks.module.css'
-import { useState } from 'react'
+import { EmptyTasks } from '../EmptyTask'
+import { TasksHeader } from '../TasksHeader'
+import { Task } from '../Task'
 
-interface TasksProps {
-  taskDescription: string
-  isTaskComplete: boolean
-}
+// import styles from './Tasks.module.css'
 
-export function Tasks({ taskDescription, isTaskComplete }: TasksProps) {
-  const [checked, setChecked] = useState(isTaskComplete)
+const tasks = [
+  {
+    id: uuid(),
+    title: 'Java',
+    isComplete: true,
+  },
+]
 
-  console.log(taskDescription)
-
+export function Tasks() {
   return (
     <>
-      {checked ? (
-        <div className={styles.container}>
-          <Checkbox.Root
-            className={styles.checkboxRootChecked}
-            checked={checked}
-            onClick={() => setChecked(!checked)}
-          >
-            <Checkbox.Indicator className={styles.checkboxIndicator}>
-              <Check weight="bold" />
-            </Checkbox.Indicator>
-          </Checkbox.Root>
-          <p className={styles.checkedText}>
-            {taskDescription.length > 125
-              ? taskDescription.substring(0, 125) + '...'
-              : taskDescription}
-          </p>
-          <Trash className={styles.trash} size={24} />
-        </div>
-      ) : (
-        <div className={styles.container}>
-          <Checkbox.Root
-            className={styles.checkboxRootUnchecked}
-            checked={checked}
-            onClick={() => setChecked(!checked)}
-          >
-            <Checkbox.Indicator className={styles.checkboxIndicator}>
-              <Check weight="bold" />
-            </Checkbox.Indicator>
-          </Checkbox.Root>
-          <p className={styles.uncheckedText}>
-            {taskDescription.length > 125
-              ? taskDescription.substring(0, 125) + '...'
-              : taskDescription}
-          </p>
-          <Trash className={styles.trash} />
-        </div>
-      )}
+      <TasksHeader created={tasks.length} completed={0} />
+      <main>
+        {tasks.length > 0 ? (
+          tasks.map((task) => {
+            return (
+              <Task
+                key={task.id}
+                taskDescription={task.title}
+                isTaskComplete={task.isComplete}
+              />
+            )
+          })
+        ) : (
+          <EmptyTasks />
+        )}
+      </main>
     </>
   )
 }

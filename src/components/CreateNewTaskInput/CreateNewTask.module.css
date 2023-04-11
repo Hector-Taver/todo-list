@@ -30,6 +30,11 @@
   transition: background-color 150ms;
 }
 
-.container button:hover {
+.container button[type="submit"]:not(:disabled):hover {
   background: var(--blue);
+}
+
+.container button[type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }

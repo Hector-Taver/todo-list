@@ -39,4 +39,3 @@ Para executar a aplicação é necessário usar os seguintes comandos no termina
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/7TDsmLYc3cxvkTSixx4I8Z/ToDo-List---Ignite?node-id=0%3A1&t=gZoAjrmAHfIlMgWJ-1).
-
