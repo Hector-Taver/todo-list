@@ -8,6 +8,7 @@ import { Tasks } from './components/Tasks'
 import styles from './App.module.css'
 
 import './global.css'
+import { TasksHeader } from './components/TasksHeader'
 
 const tasks = [
   {
@@ -18,16 +19,16 @@ const tasks = [
   {
     id: uuid(),
     title: 'Estudar Ruby on Rails',
-    isComplete: false,
-  },
-  {
-    id: uuid(),
-    title: 'Estudar Spring Boot',
     isComplete: true,
   },
   {
     id: uuid(),
-    title: 'Estudar Ruby on Rails',
+    title: 'Estudar Spring Boot',
+    isComplete: false,
+  },
+  {
+    id: uuid(),
+    title: 'Estudar Django',
     isComplete: true,
   },
 ]
@@ -38,13 +39,18 @@ export function App() {
       <Header />
       <div className={styles.container}>
         <CreateNewTask />
+        <TasksHeader created={tasks.length} completed={0} />
         <main>
-          {tasks.length < 1 ? (
-            <Tasks
-              taskDescription={
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur accusamus eaque quos obcaecati commodi vel in rerum, adipisci perferendis nemo numquam vero facilis, optio consequatur beatae sunt eligendi, ipsa assumenda. '
-              }
-            />
+          {tasks.length > 1 ? (
+            tasks.map((task) => {
+              return (
+                <Tasks
+                  key={task.id}
+                  taskDescription={task.title}
+                  isTaskComplete={task.isComplete}
+                />
+              )
+            })
           ) : (
             <EmptyTasks />
           )}

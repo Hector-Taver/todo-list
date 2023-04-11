@@ -1,24 +1,21 @@
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check, Trash } from 'phosphor-react'
 
-import { TasksHeader } from '../TasksHeader'
-
 import styles from './Tasks.module.css'
 import { useState } from 'react'
 
 interface TasksProps {
   taskDescription: string
+  isTaskComplete: boolean
 }
 
-export function Tasks({ taskDescription }: TasksProps) {
-  const [checked, setChecked] = useState(false)
+export function Tasks({ taskDescription, isTaskComplete }: TasksProps) {
+  const [checked, setChecked] = useState(isTaskComplete)
 
   console.log(taskDescription)
 
   return (
     <>
-      <TasksHeader created={5} completed={5} />
-
       {checked ? (
         <div className={styles.container}>
           <Checkbox.Root
