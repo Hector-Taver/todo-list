@@ -1,4 +1,3 @@
-import { CreateNewTask } from './components/CreateNewTaskInput'
 import { Header } from './components/Header'
 import { Tasks } from './components/Tasks'
 
@@ -11,7 +10,6 @@ export function App() {
     <>
       <Header />
       <div className={styles.container}>
-        <CreateNewTask />
         <Tasks />
       </div>
     </>

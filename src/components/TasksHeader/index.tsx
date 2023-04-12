@@ -12,7 +12,10 @@ export function TasksHeader({ created, completed }: TaskHeaderProps) {
         Tarefas criadas: <span>{created}</span>
       </p>
       <p className={styles.completed}>
-        Tarefas concluídas: <span>{completed}</span>
+        Tarefas concluídas:{' '}
+        <span>
+          {completed} de {created}
+        </span>
       </p>
     </div>
   )

@@ -1,16 +1,36 @@
+import { useState } from 'react'
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check, Trash } from 'phosphor-react'
 
 import styles from './Task.module.css'
-import { useState } from 'react'
 
+interface TasksProps {
+  id: string
+  title: string
+  isComplete: boolean
+}
 interface TaskProps {
+  taskId: string
   taskDescription: string
   isTaskComplete: boolean
+  tasks: TasksProps[]
+  setTasks: (task: TasksProps[]) => void
 }
 
-export function Task({ taskDescription, isTaskComplete }: TaskProps) {
+export function Task({
+  taskId,
+  taskDescription,
+  isTaskComplete,
+  tasks,
+  setTasks,
+}: TaskProps) {
   const [checked, setChecked] = useState(isTaskComplete)
+
+  function handleDeleteTask(id: string) {
+    const tasksAfterDeletion = tasks.filter((task) => task.id !== id)
+
+    setTasks(tasksAfterDeletion)
+  }
 
   return (
     <div className={styles.container}>
@@ -30,7 +50,11 @@ export function Task({ taskDescription, isTaskComplete }: TaskProps) {
           ? taskDescription.substring(0, 125) + '...'
           : taskDescription}
       </p>
-      <Trash className={styles.trash} size={24} />
+      <Trash
+        className={styles.trash}
+        size={24}
+        onClick={() => handleDeleteTask(taskId)}
+      />
     </div>
   )
 }
