@@ -17,8 +17,6 @@ interface CreateNewTaskProps {
 export function CreateNewTask({ tasks, setTasks }: CreateNewTaskProps) {
   const [task, setTask] = useState('')
 
-  console.log(task)
-
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault()
 

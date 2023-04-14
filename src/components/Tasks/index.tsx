@@ -13,10 +13,13 @@ interface TasksProps {
 export function Tasks() {
   const [tasks, setTasks] = useState<TasksProps[]>([])
 
+  const getIsCompleteValue = tasks.map((task) => task.isComplete)
+  const getTrueValues = getIsCompleteValue.filter((task) => task === true)
+
   return (
     <>
       <CreateNewTask tasks={tasks} setTasks={setTasks} />
-      <TasksHeader created={tasks.length} completed={0} />
+      <TasksHeader created={tasks.length} completed={getTrueValues.length} />
       <main>
         {tasks.length > 0 ? (
           tasks.map((task) => {

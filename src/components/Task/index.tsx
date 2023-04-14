@@ -26,6 +26,20 @@ export function Task({
 }: TaskProps) {
   const [checked, setChecked] = useState(isTaskComplete)
 
+  function handleCompleteTask(id: string) {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, isComplete: !task.isComplete }
+        } else {
+          return task
+        }
+      }),
+    )
+
+    setChecked(!checked)
+  }
+
   function handleDeleteTask(id: string) {
     const tasksAfterDeletion = tasks.filter((task) => task.id !== id)
 
@@ -39,7 +53,7 @@ export function Task({
           checked ? styles.checkboxRootChecked : styles.checkboxRootUnchecked
         }
         checked={checked}
-        onClick={() => setChecked(!checked)}
+        onClick={() => handleCompleteTask(taskId)}
       >
         <Checkbox.Indicator className={styles.checkboxIndicator}>
           <Check weight="bold" />
